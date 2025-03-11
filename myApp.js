@@ -9,8 +9,13 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-let Person;
+const personSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String],
+});
 
+let Person = personSchema;
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
 };
